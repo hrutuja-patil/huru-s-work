@@ -10,8 +10,6 @@ pull_request:
 
 branches: [main]
 
-F
-
 jobs:
 
 build:
