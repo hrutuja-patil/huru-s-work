@@ -1,39 +1,34 @@
 name: CI Pipeline
 
 on:
+  push:
+    branches: [main]
 
-push:
-
-branches: [main]
-
-pull_request:
-
-branches: [main]
+  pull_request:
+    branches: [main]
 
 jobs:
+  build:
+    runs-on: ubuntu-latest
 
-build:
+    steps:
 
-runs-on: ubuntu-latest
+    - name: Checkout Code
 
-steps:
+      uses: actions/checkout@v3
 
-- name: Checkout Code
+    - name: Syntax Validation
 
-uses: actions/checkout@v3
+      run: echo "Validating HTML..."
 
-- name: Syntax Validation
+    - name: Link Checking
 
-run: echo "Validating HTML..."
+      run: echo "Checking Links..."
 
-- name: Link Checking
+    - name: Build Preview
 
-run: echo "Checking Links..."
+      run: echo "Building Preview..."
 
-- name: Build Preview
-
-run: echo "Building Preview..."
-
-- name: Deployment
-
-run: echo "Deploying to GitHub Pages..."
+    - name: Deployment
+  
+      run: echo "Deploying to GitHub Pages..."
